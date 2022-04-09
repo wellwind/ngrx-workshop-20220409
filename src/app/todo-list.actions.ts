@@ -6,7 +6,7 @@ export const loadTodoLists = createAction(
 
 export const loadTodoListsSuccess = createAction(
   '[TodoList] Load TodoLists Success',
-  props<{ data: any }>()
+  props<{ data: string[] }>()
 );
 
 export const loadTodoListsFailure = createAction(

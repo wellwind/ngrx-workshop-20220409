@@ -16,9 +16,15 @@ export const initialState: State = {
 export const reducer = createReducer(
   initialState,
 
-  on(TodoListActions.loadTodoLists, state => state),
-  on(TodoListActions.loadTodoListsSuccess, (state, action) => state),
-  on(TodoListActions.loadTodoListsFailure, (state, action) => state),
+  // on(TodoListActions.loadTodoLists, state => state),
+  on(TodoListActions.loadTodoListsSuccess, (state, action) => ({
+    ...state,
+    todoList: action.data
+  })),
+  on(TodoListActions.loadTodoListsFailure, (state, action) => ({
+    ...state,
+    todoList: []
+  })),
 
   on(TodoListActions.addTodoItem, (state, action) => ({
     ...state,

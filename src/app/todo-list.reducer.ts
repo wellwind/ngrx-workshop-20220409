@@ -19,4 +19,10 @@ export const reducer = createReducer(
   on(TodoListActions.loadTodoLists, state => state),
   on(TodoListActions.loadTodoListsSuccess, (state, action) => state),
   on(TodoListActions.loadTodoListsFailure, (state, action) => state),
+
+  on(TodoListActions.addTodoItem, (state, action) => ({
+    ...state,
+    todoList: [ ...state.todoList, action.payload.todoText ]
+  }))
+
 );

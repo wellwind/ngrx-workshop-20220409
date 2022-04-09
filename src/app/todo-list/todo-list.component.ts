@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { addTodoItem } from '../todo-list.actions';
 import { selectTodoListProperty } from '../todo-list.selectors';
 
 @Component({
@@ -9,6 +10,7 @@ import { selectTodoListProperty } from '../todo-list.selectors';
 })
 export class TodoListComponent implements OnInit {
 
+  todoItem = '';
   todoList$ = this.store.select(selectTodoListProperty);
 
   constructor(private store : Store) { }
@@ -19,6 +21,10 @@ export class TodoListComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
       });
+  }
+
+  addTodoItem() {
+    this.store.dispatch(addTodoItem({ payload: {todoText: this.todoItem} }));
   }
 
 }

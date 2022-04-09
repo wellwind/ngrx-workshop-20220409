@@ -13,3 +13,5 @@ export const loadTodoListsFailure = createAction(
   '[TodoList] Load TodoLists Failure',
   props<{ error: any }>()
 );
+
+export const addTodoItem = createAction('[TodoList] Add Todo Item', props<{ payload: { todoText: string } }>());

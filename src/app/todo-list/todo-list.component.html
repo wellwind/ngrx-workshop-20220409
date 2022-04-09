@@ -1,5 +1,6 @@
 <p>todo-list works!</p>
 
+<input [(ngModel)]="todoItem" /><button (click)="addTodoItem()">Add</button>
 <ul>
   <li *ngFor="let item of todoList$ | async">
     {{ item }}
